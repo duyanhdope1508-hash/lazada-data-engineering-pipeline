@@ -1,0 +1,20 @@
+groups:
+  - name: lazada_product_alerts
+    rules:
+      - alert: ProductPriceSpike
+        expr: rate(lazada_product_price[5m]) > 0.2
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Product price increased significantly"
+          description: "Price for product {{ $labels.name }} has increased by more than 20% in 5 minutes"
+
+      - alert: LowInventory
+        expr: lazada_product_quantity < 10
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Low product inventory"
+          description: "Product {{ $labels.name }} has less than 10 items in stock"

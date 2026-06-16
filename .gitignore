@@ -1,0 +1,64 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+build/
+dist/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Secrets and local credentials
+.env
+hadoop.env
+account.txt
+host_db.txt
+*.pem
+*.key
+
+# Logs and generated runtime artifacts
+logs/
+*.log
+runtime/
+checkpoints/
+spark-warehouse/
+spark_temp/
+hadoop_data/
+hadoop_runtime/
+hadoop-tmp/
+/var/run/hadoop-hdfs/
+/var/run/hadoop/
+hadoop/dfs/data/
+hadoop/dfs/name/
+
+# Local service state
+postgres_data/
+prometheus_data/
+grafana_data/
+superset/*.db
+nifi/logs/
+nifi/content_repository/
+nifi/database_repository/
+nifi/flowfile_repository/
+nifi/provenance_repository/
+nifi/state/
+nifi/work/
+
+# DataGrip local state
+**/dataSources.local.xml
+**/workspace.xml

@@ -1,0 +1,21 @@
+<configuration>
+    <!-- ... existing configuration ... -->
+
+    <!-- Add these properties -->
+    <property>
+        <name>dfs.data.transfer.protection</name>
+        <value>privacy</value>
+    </property>
+    <property>
+        <name>dfs.http.policy</name>
+        <value>HTTPS_ONLY</value>
+    </property>
+    <property>
+        <name>dfs.encrypt.data.transfer</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.encrypt.data.transfer.algorithm</name>
+        <value>3des</value>
+    </property>
+</configuration>

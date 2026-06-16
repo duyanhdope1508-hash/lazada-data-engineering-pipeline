@@ -1,0 +1,19 @@
+{
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "**/node_modules",
+        "**/__pycache__"
+    ],
+    "ignore": ["src/spark_consumer/tiki_consumer.py"],
+    "defineConstant": {
+        "DEBUG": true
+    },
+    "venvPath": ".",
+    "venv": "venv",
+    "reportMissingImports": false,
+    "reportMissingTypeStubs": false,
+    "pythonVersion": "3.9",
+    "pythonPlatform": "Windows"
+}

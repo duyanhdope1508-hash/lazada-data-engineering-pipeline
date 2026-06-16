@@ -1,0 +1,35 @@
+{
+  "dashboard": {
+    "title": "Lazada Products Analytics",
+    "panels": [
+      {
+        "title": "Product Price Trends",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "lazada_product_price",
+            "legendFormat": "{{name}}"
+          }
+        ]
+      },
+      {
+        "title": "Technical Indicators",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "lazada_price_sma{period='7d'}",
+            "legendFormat": "SMA 7D - {{item_id}}"
+          },
+          {
+            "expr": "lazada_price_ema{period='14d'}",
+            "legendFormat": "EMA 14D - {{item_id}}"
+          },
+          {
+            "expr": "lazada_price_rsi",
+            "legendFormat": "RSI - {{item_id}}"
+          }
+        ]
+      }
+    ]
+  }
+}

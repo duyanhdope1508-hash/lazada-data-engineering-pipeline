@@ -1,0 +1,32 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  scrape_timeout: 10s
+
+scrape_configs:
+  - job_name: 'lazada_metrics'
+    static_configs:
+      - targets: ['localhost:8000']
+    metrics_path: '/metrics'
+    scheme: 'http'
+
+  - job_name: 'lazada_product_metrics'
+    static_configs:
+      - targets: ['localhost:8001']
+    metrics_path: '/product-metrics'
+    scrape_interval: 30s
+
+  - job_name: 'cassandra_metrics'
+    static_configs:
+      - targets: ['localhost:9042']
+    metrics_path: '/metrics'
+    scrape_interval: 1m
+
+rule_files:
+  - 'rules/product_alerts.yml'
+  - 'rules/price_changes.yml'
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['localhost:9093']
