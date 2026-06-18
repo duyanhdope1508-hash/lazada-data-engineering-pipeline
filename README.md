@@ -4,23 +4,9 @@ A graduation-project data engineering pipeline for collecting product data, stor
 
 ## Architecture
 
-```text
-Lazada API / PostgreSQL
-        |
-        v
-Python ETL + Kafka Producer
-        |
-        v
-Kafka topic
-        |
-        v
-Spark Structured Streaming
-        |
-        +--> HDFS / Parquet
-        +--> Cassandra
-        +--> PostgreSQL analytical tables
-        +--> NiFi / monitoring layer
-```
+![Main data architecture](docs/images/main-architecture.png)
+
+The pipeline follows a Lambda-style data architecture: Lazada product data is collected by a Python ingestion layer, staged in PostgreSQL, streamed through Kafka, processed by Spark batch and streaming jobs, persisted to PostgreSQL, HDFS, and Cassandra, and served through Superset and Grafana dashboards. Prometheus and Grafana provide the monitoring layer for pipeline and infrastructure health.
 
 ## Project Layout
 
@@ -97,3 +83,4 @@ python scripts/init_superset.py
 - Move hard-coded Windows paths in `src/main.py` and `src/spark_consumer/tiki_consumer.py` into `.env` variables.
 - Keep `.env`, `hadoop.env`, local DB files, logs, caches, and runtime folders out of Git.
 - Consider splitting extraction, loading, streaming, and monitoring code into clearer Python packages once the pipeline is stable.
+
